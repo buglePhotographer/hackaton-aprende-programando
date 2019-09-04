@@ -54,19 +54,27 @@ function sellarDocumento() {
                     console.log(res);
                     if (res == 'success') {
                         $('#responseTsa').html('El archivo ha sido sellado en Blockchain.');
+                        $('#responseTsa').addClass('alert alert-success');
                     }
                     else {
                         $('#responseTsa').html('Hubo un error intentando sellar el documento.');
+                        $('#responseTsa').addClass('alert alert-danger');
                     }
                 }).catch(function (err) {
                     console.log(err);
-                    $('#responseTsa').html('Hubo un error deserializando el json');
+                    $('#responseTsa').html('Hubo un error intentando sellar el documento.');
+                    $('#responseTsa').addClass('alert alert-danger');
                 });
+            }
+            else {
+                $('#responseTsa').html('Hubo un error intentando sellar el documento.');
+                $('#responseTsa').addClass('alert alert-danger');
             }
         })
         .catch(function (err) {
             console.log(err);
             $('#responseTsa').html('Hubo un error, verifique su conexión a internet.');
+            $('#responseTsa').addClass('alert alert-danger');
         });
 
 }
@@ -85,20 +93,24 @@ function verificarDocumento() {
                 )).then((res) => {
                     if (res.data['stamped']) {
                         $('#responseTsa').html('El archivo se encuentra sellado en Blockchain.');
+                        $('#responseTsa').addClass('alert alert-success');
                     }
                     else {
-                        $('#responseTsa').html('El archivo no ha sido encuentrado en Blockchain.');
+                        $('#responseTsa').html('El archivo no ha sido encontrado en Blockchain.');
+                        $('#responseTsa').addClass('alert alert-warning');
                     }
                 })
                     .catch(function (err) {
                         console.log(err);
-                        $('#responseTsa').html('Hubo un error deserializando el json');
+                        $('#responseTsa').html('Hubo un error en la verificación.');
+                        $('#responseTsa').addClass('alert alert-danger');
                     });
             }
         })
         .catch(function (err) {
             console.log(err);
             $('#responseTsa').html('Hubo un error, verifique su conexión a internet.');
+            $('#responseTsa').addClass('alert alert-danger');
         });
 
 }

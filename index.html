@@ -40,18 +40,18 @@
   <div class="file-upload">
 
     <div class="image-upload-wrap">
-      <input class="file-upload-input" type='file' onchange="readURL(this);" accept="image/*" />
+      <input class="file-upload-input" type='file' onchange="readURL(this);" />
       <div class="drag-text">
         <h3>Arrastrá o seleccioná un documento</h3>
       </div>
     </div>
     <div class="file-upload-content">
       <div class="image-title-wrap">
-        <div id="fileName"></div>
-        <div id="hashDisplay"></div>
+        <div id="fileName" class="file-name"></div>
+        <div id="hashDisplay" class="hash-display"></div>
         <button type="button" onclick="sellarDocumento()" class="stampar-button">Sellar</button>
         <button type="button" onclick="verificarDocumento()" class="verificar-button">Verificar</button>
-        <div id="responseTsa"></div>
+        <div style="margin-top: 15px;" id="responseTsa"></div>
       </div>
     </div>
   </div>
